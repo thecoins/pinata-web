@@ -1,0 +1,12 @@
+.change {
+    // color: #fff;
+    display: inline-block;
+    width: 45px;
+    &.up {
+        color: red;
+    }
+    &.down {
+        color: green;
+    }
+}
+

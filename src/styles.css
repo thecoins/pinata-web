@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+.social {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 2px 3px;
+    color: #333 !important;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.social:hover {
+    color: #fff !important;
+    background: #333;
+    text-decoration: none;
+}
+
+.datagrid-row-flex {
+    align-items: center !important;
+}

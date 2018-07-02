@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-12">
+
+
+    <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
+      <clr-dg-column>Rank</clr-dg-column>
+      <clr-dg-column>Exchange</clr-dg-column>
+      <clr-dg-column>Links</clr-dg-column>
+      <clr-dg-column>Volume(24h)</clr-dg-column>
+      <clr-dg-column>Trend(12h)</clr-dg-column>
+      <clr-dg-column>Action</clr-dg-column>
+
+      <clr-dg-row *ngFor="let exchange of exchanges">
+        <clr-dg-cell>{{exchange.lastrank}}</clr-dg-cell>
+        <clr-dg-cell>
+          <!-- <a href=""> -->
+          <img class="logo" src="https://static.thecoins.top/exchange/{{exchange.name}}.png" alt="{{exchange.name}}">
+          <!-- </a>      -->
+        </clr-dg-cell>
+
+        <clr-dg-cell>
+          <a class="social" *ngIf="exchange.url" href="{{exchange.url}}">
+            <i class="fa fa-home"></i>
+          </a>
+          <a class="social" *ngIf="exchange.fees" href="{{exchange.fees}}">
+            <i class="fa fa-usd"></i>
+          </a>
+          <a class="social" *ngIf="exchange.chat" href="{{exchange.chat}}">
+            <i class="fa fa-telegram"></i>
+          </a>
+          <a class="social" *ngIf="exchange.blog" href="{{exchange.blog}}">
+            <i class="fa fa-rss"></i>
+          </a>
+          <a class="social" *ngIf="exchange.twitter" href="{{exchange.twitter}}">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </clr-dg-cell>
+        <clr-dg-cell>
+          <span *ngIf="exchange.volume">${{exchange.lastvolume | numbersWithCommas}}</span>
+        </clr-dg-cell>
+        <clr-dg-cell>
+          <ngx-trend *ngIf="exchange.volume" class="trend" width="200" height="50" [data]="parse(exchange.volume)" [gradient]="['#2196F3']"
+            strokeWidth="1">
+          </ngx-trend>
+        </clr-dg-cell>
+        <clr-dg-cell>
+          <a class="btn btn-sm" href="" [routerLink]="['/exchange',exchange.nick]" >More</a>
+        </clr-dg-cell>
+
+      </clr-dg-row>
+
+      <clr-dg-footer>
+
+        <clr-dg-pagination [(clrDgPage)]="current" [clrDgPageSize]="size" #pagination [clrDgTotalItems]="total"></clr-dg-pagination>
+      </clr-dg-footer>
+    </clr-datagrid>
+
+  </div>
+</div>
