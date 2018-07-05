@@ -1,13 +1,13 @@
-<div class="row">
-  <div class="col-md-12">
+<div class="row mb-2">
+  <div class="col-md-9">
     <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
-      <clr-dg-column>Rank</clr-dg-column>
-      <clr-dg-column>Name</clr-dg-column>
-      <clr-dg-column>Market Cap</clr-dg-column>
-      <clr-dg-column>Price</clr-dg-column>
-      <clr-dg-column>Volume(24)</clr-dg-column>
-      <clr-dg-column>Circulating Supply</clr-dg-column>
-      <clr-dg-column>Change(24)</clr-dg-column>
+      <clr-dg-column>{{ "rank" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "name" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "marketcap" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "price" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "volume" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "supply" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "change" | translate }}</clr-dg-column>
 
       <clr-dg-row *ngFor="let coin of coins">
         <clr-dg-cell>#{{coin.rank}}</clr-dg-cell>
@@ -29,6 +29,9 @@
       </clr-dg-footer>
     </clr-datagrid>
 
+  </div>
+  <div class="col-md-3">
+      <app-sidebar></app-sidebar>
   </div>
 
 </div>

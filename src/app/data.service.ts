@@ -29,6 +29,10 @@ export class DataService {
     return this.http.get(this.apiUrl + '/coin', { params: params });
   }
 
+  getGlobal(): Observable<any> {
+    return this.http.get(this.apiUrl + '/global/');
+  }
+
 
 
 }

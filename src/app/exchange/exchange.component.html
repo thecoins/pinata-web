@@ -1,14 +1,13 @@
-<div class="row">
-  <div class="col-md-12">
-
+<div class="row mb-2">
+  <div class="col-md-9">
 
     <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
-      <clr-dg-column>Rank</clr-dg-column>
-      <clr-dg-column>Exchange</clr-dg-column>
-      <clr-dg-column>Links</clr-dg-column>
-      <clr-dg-column>Volume(24h)</clr-dg-column>
-      <clr-dg-column>Trend(12h)</clr-dg-column>
-      <clr-dg-column>Action</clr-dg-column>
+      <clr-dg-column>{{ "rank" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "exchange" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "links" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "volume" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "trend" | translate }}</clr-dg-column>
+      <clr-dg-column>{{ "action" | translate }}</clr-dg-column>
 
       <clr-dg-row *ngFor="let exchange of exchanges">
         <clr-dg-cell>{{exchange.lastrank}}</clr-dg-cell>
@@ -39,12 +38,12 @@
           <span *ngIf="exchange.volume">${{exchange.lastvolume | numbersWithCommas}}</span>
         </clr-dg-cell>
         <clr-dg-cell>
-          <ngx-trend *ngIf="exchange.volume" class="trend" width="200" height="50" [data]="parse(exchange.volume)" [gradient]="['#2196F3']"
+          <ngx-trend *ngIf="exchange.volume" class="trend" width="160" height="40" [data]="parse(exchange.volume)" [gradient]="['#2196F3']"
             strokeWidth="1">
           </ngx-trend>
         </clr-dg-cell>
         <clr-dg-cell>
-          <a class="btn btn-sm" href="" [routerLink]="['/exchange',exchange.nick]" >More</a>
+          <a class="btn btn-sm" href="" [routerLink]="['/exchange',exchange.nick]" >{{ "more" | translate }}</a>
         </clr-dg-cell>
 
       </clr-dg-row>
@@ -55,5 +54,8 @@
       </clr-dg-footer>
     </clr-datagrid>
 
+  </div>
+  <div class="col-md-3">
+      <app-sidebar></app-sidebar>
   </div>
 </div>

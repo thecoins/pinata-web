@@ -1,20 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
 .social {
-    border: 1px solid #333;
+    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 2px 3px;
-    color: #333 !important;
+    color: #ddd !important;
     display: inline-block;
     margin-left: 3px;
 }
 
 .social:hover {
     color: #fff !important;
-    background: #333;
+    background: #aaa;
     text-decoration: none;
 }
 
 .datagrid-row-flex {
     align-items: center !important;
+}
+
+.pagination-list button{
+    padding: 0 0.3rem!important;
 }
