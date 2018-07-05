@@ -1,26 +1,28 @@
 <clr-main-container>
     <clr-header class="header-6">
-      <div class="branding">
-        <a href="#" class="nav-link">
-          <span class="clr-icon clr-clarity-logo"></span>
-          <span class="title">Thecoins</span>
-        </a>
-      </div>
-        <div class="header-nav" [clr-nav-level]="1">
-            <a class="nav-link" href="#" [routerLink]="['/home']" routerLinkActive="active"><span class="nav-text">{{ "coins" | translate }}</span></a>
-            <a class="nav-link" href="#" [routerLink]="['/exchange']" routerLinkActive="active"><span class="nav-text">{{ "exchanges" | translate }}</span></a>
-        </div>
-      <div class="header-actions clr-align-items-center">
-        <div class="btn-group">
-              <div class="radio btn btn-sm">
-                  <input type="radio" value="en" name="lang" id="en" [(ngModel)]="lang" (click)="changeLang('en')"> 
-                  <label for="en">EN</label>
-                </div>
-                <div class="radio btn btn-sm">
-                  <input type="radio" value="zh" name="lang" id="zh" [(ngModel)]="lang" (click)="changeLang('zh')">
-                  <label for="zh">中文</label>
-                </div>
-        </div>
+      <div class="wrapper">
+          <div class="branding">
+              <a href="#" class="nav-link">
+                <span class="clr-icon clr-clarity-logo"></span>
+                <span class="title">Thecoins</span>
+              </a>
+            </div>
+              <div class="header-nav" [clr-nav-level]="1">
+                  <a class="nav-link" href="#" [routerLink]="['/home']" routerLinkActive="active"><span class="nav-text">{{ "coins" | translate }}</span></a>
+                  <a class="nav-link" href="#" [routerLink]="['/exchange']" routerLinkActive="active"><span class="nav-text">{{ "exchanges" | translate }}</span></a>
+              </div>
+            <div class="header-actions clr-align-items-center">
+              <div class="btn-group">
+                    <div class="radio btn btn-sm">
+                        <input type="radio" value="en" name="lang" id="en" [(ngModel)]="lang" (click)="changeLang('en')"> 
+                        <label for="en">EN</label>
+                      </div>
+                      <div class="radio btn btn-sm">
+                        <input type="radio" value="zh" name="lang" id="zh" [(ngModel)]="lang" (click)="changeLang('zh')">
+                        <label for="zh">中文</label>
+                      </div>
+              </div>
+            </div>
       </div>
     </clr-header>
     <div class="content-container">
