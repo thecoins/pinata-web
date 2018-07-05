@@ -22,3 +22,7 @@
 .pagination-list button{
     padding: 0 0.3rem!important;
 }
+
+.main-container{
+    height: auto!important;
+}
