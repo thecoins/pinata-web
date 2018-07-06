@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   private start: number = 0;  //分页，起始
   public current: number = 1; //分页，当前页
-  public size: number = 20;   //分页，每页个数
+  public size: number = 50;   //分页，每页个数
   public total: number = 0;   //分页，总数
   public coins: Array<any>;
   // public coininfo: Array<any>;

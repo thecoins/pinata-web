@@ -16,7 +16,7 @@ export class ExchangeComponent implements OnInit {
 
   private start: number = 0;  //分页，起始
   public current: number = 1; //分页，当前页
-  public size: number = 20;   //分页，每页个数
+  public size: number = 30;   //分页，每页个数
   public total: number = 0;   //分页，总数
 
   public loading: boolean = false; //加载中
