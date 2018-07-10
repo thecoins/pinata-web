@@ -11,13 +11,13 @@
 
       <clr-dg-row *ngFor="let coin of coins">
         <clr-dg-cell>#{{coin.rank}}</clr-dg-cell>
-        <clr-dg-cell>{{coin.name}}</clr-dg-cell>
-        <clr-dg-cell>￥{{coin.quotes.CNY.market_cap | numbersWithCommas}}</clr-dg-cell>
+        <clr-dg-cell>{{coin.symbol}}</clr-dg-cell>
+        <clr-dg-cell class="text-right">{{market(coin.quotes.CNY.market_cap,coin.quotes.USD.market_cap)}}</clr-dg-cell>
         <clr-dg-cell>
-          <span class="text-primary">￥{{coin.quotes.CNY.price | numbersDigits | numbersWithCommas}}</span>
+          <span class="text-primary">{{price(coin.quotes.CNY.price,coin.quotes.USD.price)}}</span>
         </clr-dg-cell>
-        <clr-dg-cell>￥{{coin.quotes.CNY.volume_24h | numbersDigits | numbersWithCommas}}</clr-dg-cell>
-        <clr-dg-cell>{{coin.total_supply | numbersWithCommas}} {{coin.symbol}}</clr-dg-cell>
+        <clr-dg-cell class="text-right">{{volume(coin.quotes.CNY.volume_24h,coin.quotes.CNY.volume_24h)}}</clr-dg-cell>
+        <clr-dg-cell>{{supply(coin.total_supply)}}</clr-dg-cell>
         <clr-dg-cell>
           <span [class]="upordown(coin.quotes.CNY.percent_change_24h)">{{coin.quotes.CNY.percent_change_24h}}%</span>
         </clr-dg-cell>

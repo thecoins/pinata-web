@@ -6,17 +6,15 @@
         <div class="card-text">
             <ul>
                 <li>
-                    <span>{{ "totalmarketcap" | translate }}</span>{{global.total_market_cap_usd}}</li>
+                    <span>{{ "totalmarketcap" | translate }}: </span>{{market(global.total_market_cap_cny,global.total_market_cap_usd)}}</li>
                 <li>
-                    <span>{{ "totalvolume" | translate }}</span>{{global.total_24h_volume_usd}}</li>
+                    <span>{{ "totalvolume" | translate }}: </span>{{volume(global.total_24h_volume_cny,global.total_24h_volume_usd)}}</li>
                 <li>
-                    <span>{{ "activemarkets" | translate }}</span>{{global.active_markets}}</li>
+                    <span>{{ "activemarkets" | translate }}: </span>{{global.active_markets}}</li>
                 <li>
-                    <span>{{ "activecurrencies" | translate }}</span>{{global.active_currencies}}</li>
+                    <span>{{ "activecurrencies" | translate }}: </span>{{global.active_currencies}}</li>
                 <li>
-                    <span>{{ "activeassets" | translate }}</span>{{global.active_assets}}</li>
-                <!-- <li><span>{{ "totalmarketcapcny" | translate }}</span>{{global.total_market_cap_cny}}</li> -->
-                <!-- <li><span>{{ "totalvolumecny" | translate }}</span>{{global.total_24h_volume_cny}}</li> -->
+                    <span>{{ "activeassets" | translate }}: </span>{{global.active_assets}}</li>
 
             </ul>
         </div>
@@ -37,38 +35,3 @@
 
 </div>
 
-<div class="card">
-        <div class="card-header">
-            Header
-        </div>
-        <div class="card-block">
-            <div class="card-title">
-                Block
-            </div>
-            <div class="card-text">
-                ...
-            </div>
-        </div>
-        <div class="card-footer">
-            <button class="btn btn-sm btn-link">Footer Action 1</button>
-            <button class="btn btn-sm btn-link">Footer Action 2</button>
-        </div>
-    </div>
-
-    <div class="card">
-            <div class="card-header">
-                Header
-            </div>
-            <div class="card-block">
-                <div class="card-title">
-                    Block
-                </div>
-                <div class="card-text">
-                    ...
-                </div>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-link">Footer Action 1</button>
-                <button class="btn btn-sm btn-link">Footer Action 2</button>
-            </div>
-        </div>

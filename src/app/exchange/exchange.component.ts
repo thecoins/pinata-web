@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ClrDatagridStateInterface } from "@clr/angular";
+import { TranslateService } from '@ngx-translate/core';
+import { Utils } from '../utils';
 
 @Component({
   selector: 'app-exchange',
@@ -21,7 +23,7 @@ export class ExchangeComponent implements OnInit {
 
   public loading: boolean = false; //加载中
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, public translate: TranslateService) { }
 
   ngOnInit() {
     this.getExchages(this.start, this.size);
@@ -46,5 +48,20 @@ export class ExchangeComponent implements OnInit {
 
     });
   }
+
+  public volume(volumeusd) {
+    if (this.translate.currentLang == 'en') {
+      let bits = Utils.enBits(volumeusd)
+      return '$' + (volumeusd / bits.digits).toFixed(2) + bits.symbol
+    }
+
+    else {
+      let volumecny = volumeusd * 6.5
+      let bits = Utils.zhBits(volumecny)
+      return '￥' + (volumecny / bits.digits).toFixed(2) + bits.symbol
+    }
+  }
+
+  
 
 }

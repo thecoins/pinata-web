@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StockChart } from 'angular-highcharts';
 import { DataService } from '../data.service';
-
+import { Config } from '../config';
 @Component({
   selector: 'app-exchange-detail',
   templateUrl: './exchange-detail.component.html',
@@ -12,8 +12,8 @@ import { DataService } from '../data.service';
 export class ExchangeDetailComponent implements OnInit {
 
   public exchange: any = {};
-  public chart: any = {}; 
-  constructor(private route: ActivatedRoute, private dataservice: DataService) {
+  public chart: any = {};
+  constructor(private route: ActivatedRoute, private dataservice: DataService, private config: Config) {
 
   }
 
@@ -24,23 +24,13 @@ export class ExchangeDetailComponent implements OnInit {
       if (res.code === 200) {
         this.exchange.info = res.info[0];
         // this.chart.series[0].data = res.volume;
-        this.chart = new StockChart({
-          chart: {
-            type: 'line'
-          },
-          title: {
-            text: 'Linechart'
-          },
-          credits: {
-            enabled: false
-          },
-          series: [
-            {
-              name: 'Line 1',
-              data: res.volume
-            }
-          ]
-        });
+        let chartOption = this.config.highchartsConfig;
+        chartOption.series = [];
+        chartOption.series.push({
+          name: 'Line 1',
+          data: res.volume
+        })
+        this.chart = new StockChart(<any>chartOption);
       }
     }, err => {
 

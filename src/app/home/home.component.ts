@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ClrDatagridStateInterface } from "@clr/angular";
+import { TranslateService } from '@ngx-translate/core';
+import { Utils } from '../utils';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +20,7 @@ export class HomeComponent implements OnInit {
   // public coininfo: Array<any>;
   public loading: boolean = false; //加载中
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, public translate: TranslateService) { }
 
   ngOnInit() {
     this.getCoins(this.start, this.size);
@@ -46,6 +48,59 @@ export class HomeComponent implements OnInit {
     }
     else {
       return 'change down';
+    }
+  }
+
+  public market(marketcny, marketusd) {
+
+    if (this.translate.currentLang == 'en') {
+      let bits = Utils.enBits(marketusd)
+      return '$' + (marketusd / bits.digits).toFixed(2) + bits.symbol
+    }
+    else {
+      let bits = Utils.zhBits(marketcny)
+      return '￥' + (marketcny / bits.digits).toFixed(2) + bits.symbol
+    }
+  }
+
+  public price(pricecny,priceusd){
+    if (this.translate.currentLang == 'en'){
+      return '$' + priceusd
+    }
+    else{
+      if (pricecny < 1) {
+        return '￥' + pricecny.toFixed(6);
+      }
+      else if (pricecny > 100) {
+        return '￥' + pricecny.toFixed(2);
+      }
+      else {
+        return '￥' + pricecny.toFixed(4);
+      }
+    }
+  }
+
+  public supply(supply){
+    if (this.translate.currentLang == 'en') {
+      let bits = Utils.enBits(supply)
+      return '$' + (supply / bits.digits).toFixed(2) + bits.symbol
+    }
+
+    else {
+      let bits = Utils.zhBits(supply)
+      return '￥' + (supply / bits.digits).toFixed(2) + bits.symbol
+    }
+  }
+
+  public volume(volumecny, volumeusd) {
+    if (this.translate.currentLang == 'en') {
+      let bits = Utils.enBits(volumeusd)
+      return '$' + (volumeusd / bits.digits).toFixed(2) + bits.symbol
+    }
+
+    else {
+      let bits = Utils.zhBits(volumecny)
+      return '￥' + (volumecny / bits.digits).toFixed(2) + bits.symbol
     }
   }
 

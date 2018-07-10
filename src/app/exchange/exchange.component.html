@@ -35,7 +35,7 @@
           </a>
         </clr-dg-cell>
         <clr-dg-cell>
-          <span *ngIf="exchange.volume">${{exchange.lastvolume | numbersWithCommas}}</span>
+          <span *ngIf="exchange.volume">{{volume(exchange.lastvolume)}}</span>
         </clr-dg-cell>
         <clr-dg-cell>
           <ngx-trend *ngIf="exchange.volume" class="trend" width="160" height="40" [data]="parse(exchange.volume)" [gradient]="['#2196F3']"
