@@ -4,7 +4,7 @@
     <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
       <clr-dg-column>{{ "rank" | translate }}</clr-dg-column>
       <clr-dg-column>{{ "exchange" | translate }}</clr-dg-column>
-      <clr-dg-column>{{ "links" | translate }}</clr-dg-column>
+      <!-- <clr-dg-column>{{ "links" | translate }}</clr-dg-column> -->
       <clr-dg-column>{{ "volume" | translate }}</clr-dg-column>
       <clr-dg-column>{{ "trend" | translate }}</clr-dg-column>
       <clr-dg-column>{{ "action" | translate }}</clr-dg-column>
@@ -12,27 +12,10 @@
       <clr-dg-row *ngFor="let exchange of exchanges">
         <clr-dg-cell>{{exchange.lastrank}}</clr-dg-cell>
         <clr-dg-cell>
-          <!-- <a href=""> -->
-          <img class="logo" src="https://static.thecoins.top/exchange/{{exchange.name}}.png" alt="{{exchange.name}}">
-          <!-- </a>      -->
-        </clr-dg-cell>
-
-        <clr-dg-cell>
-          <a class="social" *ngIf="exchange.url" href="{{exchange.url}}">
-            <i class="fa fa-home"></i>
-          </a>
-          <a class="social" *ngIf="exchange.fees" href="{{exchange.fees}}">
-            <i class="fa fa-usd"></i>
-          </a>
-          <a class="social" *ngIf="exchange.chat" href="{{exchange.chat}}">
-            <i class="fa fa-telegram"></i>
-          </a>
-          <a class="social" *ngIf="exchange.blog" href="{{exchange.blog}}">
-            <i class="fa fa-rss"></i>
-          </a>
-          <a class="social" *ngIf="exchange.twitter" href="{{exchange.twitter}}">
-            <i class="fa fa-twitter"></i>
-          </a>
+          <a href="{{exchange.url}}">
+          <!-- <img class="logo" src="https://static.thecoins.top/exchange/{{exchange.name}}.png" alt="{{exchange.name}}"> -->
+          {{exchange.firstname}}  
+        </a>     
         </clr-dg-cell>
         <clr-dg-cell>
           <span *ngIf="exchange.volume">{{volume(exchange.lastvolume)}}</span>
