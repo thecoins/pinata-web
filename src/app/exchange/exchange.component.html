@@ -12,8 +12,8 @@
       <clr-dg-row *ngFor="let exchange of exchanges">
         <clr-dg-cell>{{exchange.lastrank}}</clr-dg-cell>
         <clr-dg-cell>
-          <a href="{{exchange.url}}">
-          <!-- <img class="logo" src="https://static.thecoins.top/exchange/{{exchange.name}}.png" alt="{{exchange.name}}"> -->
+          <a target="_blank" href="{{exchange.url}}">
+          <img class="logo" src="https://static.thecoins.top/exlogo/{{exchange.name}}.jpg" alt="{{exchange.name}}">
           {{exchange.firstname}}  
         </a>     
         </clr-dg-cell>
