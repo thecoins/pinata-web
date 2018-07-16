@@ -11,7 +11,7 @@
 
       <clr-dg-row *ngFor="let coin of coins">
         <clr-dg-cell>#{{coin.rank}}</clr-dg-cell>
-        <clr-dg-cell><img  class="logo" src="https://static.thecoins.top/coinlogo/{{coin.website_slug}}.svg" alt="{{coin.symbol}}">{{coin.symbol}}</clr-dg-cell>
+        <clr-dg-cell><img  class="logo" src="https://static.thecoins.top/coinlogo/{{coin.website_slug}}.svg" alt="{{coin.symbol}}" onError="this.src='https://static.thecoins.top/coinlogo/thecoins.svg'">{{coin.symbol}}</clr-dg-cell>
         <clr-dg-cell class="text-right">{{market(coin.quotes.CNY.market_cap,coin.quotes.USD.market_cap)}}</clr-dg-cell>
         <clr-dg-cell>
           <span class="text-primary">{{price(coin.quotes.CNY.price,coin.quotes.USD.price)}}</span>
